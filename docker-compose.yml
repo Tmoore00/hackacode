@@ -1,0 +1,16 @@
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+  db:
+    image: mysql:8.0.29-debian
+    ports:
+      - 3306:3306
+    env_file: .env
+    container_name: db
+    volumes:
+      - db_volume:/var/lib/mysql/
+
+volumes:
+  db_volume:
